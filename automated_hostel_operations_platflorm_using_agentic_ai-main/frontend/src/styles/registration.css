@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+
+.registration-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-bottom: 2.5rem;
+  background:
+    radial-gradient(circle at 8% 6%, rgba(26, 95, 168, 0.13), transparent 33%),
+    radial-gradient(circle at 96% 95%, rgba(255, 140, 66, 0.14), transparent 34%),
+    linear-gradient(180deg, #eff6ff 0%, #f8fbff 100%);
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+.stepper-container {
+  position: sticky;
+  top: 72px;
+  z-index: 60;
+  border-bottom: 1px solid #d9e6f8;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 16px rgba(9, 33, 65, 0.08);
+  padding: 1rem 1.2rem;
+}
+
+.stepper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.stepper-group {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+}
+
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.stepper-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #c8d9ef;
+  background: #ebf3ff;
+  color: #4f6f97;
+  font-size: 1rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.stepper-item.active .stepper-icon {
+  background: linear-gradient(130deg, #1f73e6 0%, #428ff4 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(31, 115, 230, 0.3);
+}
+
+.stepper-item.completed .stepper-icon {
+  background: #0f315a;
+  border-color: #0f315a;
+  color: #ffffff;
+}
+
+.stepper-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #6682a7;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.stepper-item.active .stepper-label,
+.stepper-item.completed .stepper-label {
+  color: #173a66;
+}
+
+.stepper-line {
+  flex: 1;
+  min-width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #d8e6f7;
+}
+
+.stepper-line.completed {
+  background: linear-gradient(90deg, #1f73e6 0%, #428ff4 100%);
+}
+
+.registration-container {
+  width: 100%;
+  max-width: 980px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.registration-card {
+  border: 1px solid #d9e6f8;
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 18px 38px rgba(13, 41, 82, 0.12);
+  backdrop-filter: blur(4px);
+  padding: clamp(1rem, 2.5vw, 1.8rem);
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.step-header {
+  text-align: center;
+}
+
+.step-title {
+  margin: 0;
+  color: #102947;
+  font-family: 'Sora', 'Manrope', sans-serif;
+  font-size: clamp(1.35rem, 3.3vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.step-subtitle {
+  margin: 0.5rem 0 0;
+  color: #617a9b;
+  line-height: 1.58;
+}
+
+.form-section {
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  margin: 0 0 0.9rem;
+  border-bottom: 1px solid #deebfb;
+  padding-bottom: 0.65rem;
+  color: #16345b;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.registration-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.registration-page .form-label {
+  color: #24466f;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.registration-page .form-input,
+.registration-page .form-select {
+  width: 100%;
+  padding: 0.75rem 0.84rem;
+  border: 1px solid #ccdaec;
+  border-radius: 0.7rem;
+  background: #f7fbff;
+  color: #102746;
+  font-size: 0.91rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.registration-page .form-input::placeholder {
+  color: #7c90ab;
+}
+
+.registration-page .form-input:focus,
+.registration-page .form-select:focus {
+  outline: none;
+  border-color: #3a7adf;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(58, 122, 223, 0.16);
+}
+
+.registration-page .form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath fill='%2324466f' d='M2 2l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.1rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  border: 1px solid #ccdced;
+  border-radius: 0.72rem;
+  background: #f8fbff;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.radio-label:hover {
+  border-color: #6f9ee4;
+  background: #f0f6ff;
+}
+
+.radio-label input[type='radio'] {
+  margin-top: 2px;
+  accent-color: #1f73e6;
+}
+
+.radio-text {
+  color: #143867;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: block;
+  border: 1px dashed #74a3e6;
+  border-radius: 0.72rem;
+  background: #f1f7ff;
+  color: #1d4f89;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.87rem;
+  padding: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.file-label:hover {
+  background: #e6f1ff;
+  border-color: #4d88d9;
+}
+
+.info-box,
+.warning-box {
+  border-radius: 0.72rem;
+  padding: 0.72rem 0.9rem;
+  font-size: 0.87rem;
+  line-height: 1.52;
+}
+
+.info-box {
+  border: 1px solid #cfe0f8;
+  background: #edf4ff;
+  color: #184274;
+}
+
+.warning-box {
+  border: 1px solid #f3cf9f;
+  background: #fff6e9;
+  color: #8c4b07;
+}
+
+.info-box p,
+.warning-box p {
+  margin: 0;
+}
+
+.summary-card {
+  border: 1px solid #d8e6f9;
+  border-radius: 0.9rem;
+  background: #fafdff;
+  padding: 0.95rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.summary-item {
+  border: 1px solid #e2ecfa;
+  border-radius: 0.66rem;
+  background: #ffffff;
+  padding: 0.62rem;
+}
+
+.summary-label {
+  display: block;
+  color: #64809f;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.summary-value {
+  margin-top: 0.28rem;
+  display: block;
+  color: #112d50;
+  font-size: 0.9rem;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.form-buttons {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid #deebfb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.registration-page .btn {
+  border: 0;
+  border-radius: 0.72rem;
+  padding: 0.78rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.registration-page .btn:hover {
+  transform: translateY(-1px);
+}
+
+.registration-page .btn-primary {
+  background: linear-gradient(130deg, #0f315a 0%, #1d528b 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(13, 49, 93, 0.26);
+}
+
+.registration-page .btn-submit {
+  background: linear-gradient(130deg, #1f73e6 0%, #428ff4 100%);
+}
+
+.registration-page .btn-secondary {
+  background: #edf4ff;
+  color: #1d4f89;
+  border: 1px solid #cfe0f8;
+  box-shadow: none;
+}
+
+.success-message {
+  margin-top: 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid #b4e1c1;
+  background: #f1fdf5;
+  text-align: center;
+  color: #0f5f30;
+  padding: 1rem;
+}
+
+.success-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.success-message h2 {
+  margin: 0.5rem 0 0.35rem;
+  color: #0e6b37;
+  font-size: 1.15rem;
+}
+
+.success-message p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 840px) {
+  .stepper-label {
+    font-size: 0.68rem;
+  }
+
+  .form-row,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .stepper-container {
+    top: 62px;
+    padding: 0.75rem 0.55rem;
+  }
+
+  .stepper {
+    gap: 0.35rem;
+  }
+
+  .stepper-group {
+    gap: 0.35rem;
+  }
+
+  .stepper-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.86rem;
+  }
+
+  .stepper-label {
+    font-size: 0.62rem;
+  }
+
+  .registration-container {
+    margin: 1rem auto;
+    padding: 0 0.65rem;
+  }
+
+  .registration-card {
+    border-radius: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .registration-page .btn {
+    width: 100%;
+  }
+}

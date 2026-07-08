@@ -1,0 +1,288 @@
+.room-utilities-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.utilities-header {
+  margin-bottom: 32px;
+}
+
+.utilities-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.utilities-header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.utilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.utility-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.card-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.utility-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.utility-card p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.utility-card button {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.utility-card button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn-warning {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.room-utilities-container .btn-primary,
+.room-utilities-container .btn-warning {
+  min-height: 44px;
+  font-weight: 600;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid;
+}
+
+.result-box.success {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.result-box.warning {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.result-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.result-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.discrepancies-list {
+  margin-top: 12px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.discrepancy-item {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid #fbbf24;
+  overflow-wrap: anywhere;
+}
+
+.discrepancy-item strong {
+  color: #92400e;
+}
+
+.info-section {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.info-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-section li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.info-section li:last-child {
+  border-bottom: none;
+}
+
+.info-section strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .room-utilities-container {
+    padding: 18px;
+  }
+
+  .utilities-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .room-utilities-container {
+    padding: 14px;
+  }
+
+  .utilities-header {
+    margin-bottom: 18px;
+  }
+
+  .utilities-header h1 {
+    font-size: 22px;
+  }
+
+  .utilities-header p {
+    font-size: 13px;
+  }
+
+  .utility-card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .card-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+  }
+
+  .utility-card h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .utility-card p {
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+
+  .result-box {
+    margin-top: 14px;
+    padding: 12px;
+  }
+
+  .result-box h3 {
+    font-size: 15px;
+  }
+
+  .discrepancies-list {
+    max-height: 220px;
+  }
+
+  .discrepancy-item {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .info-section {
+    padding: 14px;
+  }
+
+  .info-section h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .info-section li {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-utilities-container {
+    padding: 12px;
+  }
+
+  .utilities-header h1 {
+    font-size: 20px;
+  }
+
+  .utility-card {
+    padding: 12px;
+  }
+
+  .room-utilities-container .btn-primary,
+  .room-utilities-container .btn-warning {
+    padding: 10px 14px;
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .result-box p {
+    font-size: 13px;
+  }
+}

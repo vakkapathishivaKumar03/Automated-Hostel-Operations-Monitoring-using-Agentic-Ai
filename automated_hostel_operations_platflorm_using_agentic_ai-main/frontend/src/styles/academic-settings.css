@@ -1,0 +1,228 @@
+.academic-settings-page{
+  padding:24px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.academic-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.academic-header h1{margin:0;color:var(--text-dark);font-size:22px}
+.academic-header p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+.academic-settings-page .page-header-card {
+  padding: 18px 22px;
+  border-radius: 14px;
+}
+
+.academic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.academic-card{background:#fff;border:1px solid var(--border-light);border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(2,6,23,0.06)}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.card-header h2{margin:0;font-size:16px;color:var(--text-dark)}
+.count-badge{padding:4px 8px;border-radius:999px;background:#eef2ff;border:1px solid #c7d2fe;color:#4338ca;font-size:12px;font-weight:700}
+
+.add-row{display:flex;gap:8px;margin-bottom:12px}
+.add-row input{flex:1;border:1px solid var(--border-light);border-radius:8px;padding:8px 10px;font-size:13px}
+.add-row button{border:none;background:var(--accent);color:#fff;border-radius:8px;padding:8px 12px;font-size:12px;font-weight:700;cursor:pointer}
+.add-row button:disabled{opacity:.55;cursor:not-allowed}
+
+.list{display:flex;flex-direction:column;gap:10px}
+.list-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;border:1px solid var(--border-light);border-radius:10px;padding:10px;background:#fff}
+.list-row input{border:1px solid var(--border-light);border-radius:8px;padding:6px 8px;font-size:12px}
+.list-row select{border:1px solid var(--border-light);border-radius:8px;padding:6px 8px;font-size:12px}
+.row-title{font-weight:600;color:var(--text-dark);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row-actions{display:flex;gap:6px;flex-wrap:nowrap}
+.row-actions button{border:1px solid var(--border-light);background:#fff;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer}
+.row-actions button.primary{background:#ecfdf5;border-color:#bbf7d0;color:#065f46}
+.row-actions button.danger{background:#fff1f2;border-color:#fecaca;color:#9f1239}
+.status{padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;text-transform:uppercase}
+.status.active{background:#ecfdf5;color:#065f46;border:1px solid #bbf7d0}
+.status.inactive{background:#fff1f2;color:#9f1239;border:1px solid #fecaca}
+
+.empty{color:var(--muted);font-size:12px}
+
+@media (max-width:900px){
+  .academic-grid{grid-template-columns:1fr}
+}
+
+@media (max-width:768px){
+  .academic-settings-page{padding:14px}
+
+  .academic-settings-page .page-header-card {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .academic-header h1{font-size:20px}
+
+  .academic-card{padding:14px}
+
+  .add-row{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .add-row input,
+  .add-row button{
+    width:100%;
+    min-height:40px;
+    font-size:13px;
+  }
+
+  .list-row{
+    grid-template-columns:1fr auto;
+    grid-template-areas:
+      "title status"
+      "actions actions";
+    row-gap:8px;
+    column-gap:8px;
+    padding:10px;
+  }
+
+  .list-row .row-title{grid-area:title}
+  .list-row .status{grid-area:status;justify-self:end}
+  .list-row .row-actions{grid-area:actions;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .list-row .row-actions button{width:100%;padding:8px 10px}
+
+  .list-row.editing{
+    grid-template-columns:1fr;
+    grid-template-areas:none;
+    gap:8px;
+  }
+
+  .list-row.editing input,
+  .list-row.editing select,
+  .list-row.editing .row-actions,
+  .list-row.editing .row-actions button{
+    width:100%;
+  }
+
+  .list-row.editing .row-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+}
+
+@media (max-width:480px){
+  .academic-settings-page{padding:12px}
+
+  .academic-header h1{font-size:18px}
+  .academic-header p{font-size:12px}
+
+  .list-row .status{font-size:10px;padding:3px 7px}
+  .row-actions button{font-size:11px}
+}
+
+/* Keep section title and count badge on the same line (avoid global card-header collisions) */
+.academic-settings-page .academic-card .card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.academic-settings-page .academic-card .card-header h2 {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.academic-settings-page .academic-card .count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.academic-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2600;
+  padding: 16px;
+}
+
+.academic-confirm-modal {
+  width: min(460px, 100%);
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(2, 6, 23, 0.22);
+  overflow: hidden;
+}
+
+.academic-confirm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.academic-confirm-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-dark);
+}
+
+.academic-confirm-close {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.academic-confirm-body {
+  padding: 16px;
+  color: var(--text-dark);
+}
+
+.academic-confirm-body p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.academic-confirm-subtext {
+  margin-top: 8px !important;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.academic-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.academic-confirm-actions button {
+  border: 1px solid var(--border-light);
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.academic-confirm-actions button.danger {
+  background: #fff1f2;
+  border-color: #fecaca;
+  color: #9f1239;
+}
+
+@media (max-width: 480px) {
+  .academic-confirm-actions {
+    flex-direction: column;
+  }
+
+  .academic-confirm-actions button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,161 @@
+.context-action-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(4px);
+}
+
+.context-action-card {
+  width: min(100%, 900px);
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+}
+
+.context-action-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  padding: 20px 72px 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.context-action-header h2 {
+  margin: 0;
+  color: #17315c;
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-weight: 800;
+  text-align: center;
+}
+
+.context-action-close {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #6f7f97;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.context-action-body {
+  padding: 46px 32px 28px;
+  text-align: center;
+}
+
+.context-action-icon {
+  font-size: 3.2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.context-action-message {
+  margin: 0;
+  color: #2b3548;
+  font-size: clamp(1.05rem, 1.8vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.context-action-subtext {
+  margin: 14px 0 0;
+  color: #6b7280;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.context-action-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 26px 30px;
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.context-action-button {
+  min-width: 176px;
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.context-action-button:hover {
+  transform: translateY(-1px);
+}
+
+.context-action-button-secondary {
+  background: #ffffff;
+  color: #223a5a;
+  border-color: #d7dee8;
+}
+
+.context-action-button-danger {
+  background: #ff4b4b;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(255, 75, 75, 0.22);
+}
+
+.context-action-button-warning {
+  background: #f7a400;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(247, 164, 0, 0.22);
+}
+
+.context-action-button-primary,
+.context-action-button-success {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+}
+
+@media (max-width: 640px) {
+  .context-action-overlay {
+    padding: 14px;
+  }
+
+  .context-action-card {
+    border-radius: 20px;
+  }
+
+  .context-action-header {
+    min-height: 76px;
+    padding: 18px 58px 18px 18px;
+  }
+
+  .context-action-close {
+    right: 16px;
+    font-size: 1.9rem;
+  }
+
+  .context-action-body {
+    padding: 34px 18px 22px;
+  }
+
+  .context-action-footer {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .context-action-button {
+    width: 100%;
+    min-width: 0;
+  }
+}

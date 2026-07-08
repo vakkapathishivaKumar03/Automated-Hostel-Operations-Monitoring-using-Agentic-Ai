@@ -1,0 +1,505 @@
+/* Global Styles - Mobile First Responsive Design */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.page-header-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.page-header-text h1,
+.page-header-text h2,
+.page-header-text .page-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.page-header-text p,
+.page-header-text .page-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.page-header-action,
+.page-header-action-group {
+  flex: 0 0 auto;
+}
+
+.page-header-action-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Responsive Typography */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  line-height: 1.4;
+}
+
+h4, h5, h6 {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+p {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+small {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+}
+
+/* Touch-friendly buttons and inputs */
+button, input, textarea, select {
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 16px; /* Prevents zoom on iOS input focus */
+  padding: 0.75rem 1rem;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.875rem;
+  }
+  
+  th, td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .page-header-card {
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-header-action,
+  .page-header-action-group {
+    width: 100%;
+  }
+
+  .page-header-action-group {
+    justify-content: flex-start;
+  }
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 481px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Responsive Grid Utility */
+.responsive-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 481px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Responsive Flex */
+.responsive-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-flex {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+/* Visibility utilities */
+.hide-mobile {
+  display: none;
+}
+
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
+  
+  .show-mobile {
+    display: none;
+  }
+}
+
+/* Breakpoint indicators for debugging */
+@media (max-width: 480px) {
+  :root {
+    --device-type: 'mobile';
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  :root {
+    --device-type: 'mobile-landscape';
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --device-type: 'tablet';
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --device-type: 'desktop';
+  }
+}
+
+/* Keep all modal overlays above fixed navbars across the app */
+:where(
+  .modal-overlay,
+  .profile-modal-overlay,
+  .complaint-modal-overlay,
+  .request-modal-overlay,
+  .outpass-modal-overlay,
+  .detail-modal-overlay,
+  .change-password-overlay,
+  .logs-modal-overlay,
+  .parcel-modal-overlay,
+  .visitor-modal-overlay,
+  .reports-modal-overlay,
+  .technician-modal-overlay,
+  [class*="modal-overlay"]
+) {
+  z-index: 2200 !important;
+}
+
+/* Prevent fixed top navbar hover/focus highlight while modal is active */
+@supports selector(body:has(*)) {
+  body:has(
+    .modal-overlay,
+    .profile-modal-overlay,
+    .complaint-modal-overlay,
+    .request-modal-overlay,
+    .outpass-modal-overlay,
+    .detail-modal-overlay,
+    .change-password-overlay,
+    .logs-modal-overlay,
+    .parcel-modal-overlay,
+    .visitor-modal-overlay,
+    .reports-modal-overlay,
+    .technician-modal-overlay,
+    [class*="modal-overlay"]
+  ) .top-navbar {
+    pointer-events: none;
+  }
+}
+
+body.modal-open .top-navbar,
+body.modal-open .top-navbar * {
+  pointer-events: none !important;
+}
+
+/* Responsive modal overrides: tablet and mobile only */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .modal-overlay,
+  .profile-modal-overlay,
+  .complaint-modal-overlay,
+  .request-modal-overlay,
+  .outpass-modal-overlay,
+  .detail-modal-overlay,
+  .change-password-overlay {
+    padding: 20px;
+  }
+
+  .modal-content,
+  .profile-modal-content,
+  .complaint-modal-container,
+  .request-modal-container,
+  .outpass-modal-card,
+  .detail-modal,
+  .change-password-modal {
+    width: min(92vw, 720px);
+    max-width: min(92vw, 720px);
+    max-height: calc(100vh - 40px);
+  }
+
+  .modal-content.modal-large {
+    width: min(94vw, 860px);
+    max-width: min(94vw, 860px);
+  }
+
+  .modal-content.modal-sm {
+    width: min(92vw, 520px);
+    max-width: min(92vw, 520px);
+  }
+
+  .modal-header,
+  .profile-modal-header,
+  .complaint-modal-header,
+  .request-modal-header,
+  .change-password-header,
+  .detail-modal .modal-header,
+  .modal-body,
+  .profile-modal-body,
+  .complaint-modal-body,
+  .request-modal-body,
+  .profile-modal-footer,
+  .complaint-modal-footer,
+  .request-modal-footer,
+  .change-password-modal .form-actions,
+  .detail-modal .modal-footer,
+  .modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .modal-content .details-grid,
+  .modal-content .form-row,
+  .request-modal-container .form-group-row,
+  .outpass-modal-card .form-row,
+  .profile-modal-content .profile-header-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .modal-content .details-grid > div {
+    grid-template-columns: minmax(110px, auto) 1fr;
+    gap: 10px 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .modal-container {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 2000;
+  }
+
+  .modal-overlay,
+  .profile-modal-overlay,
+  .complaint-modal-overlay,
+  .request-modal-overlay,
+  .outpass-modal-overlay,
+  .detail-modal-overlay,
+  .change-password-overlay {
+    padding: 12px;
+  }
+
+  .modal-content,
+  .profile-modal-content,
+  .complaint-modal-container,
+  .request-modal-container,
+  .outpass-modal-card,
+  .detail-modal,
+  .change-password-modal {
+    width: 95%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 16px;
+  }
+
+  .modal-content.modal-large,
+  .modal-content.modal-sm {
+    width: 100%;
+    max-width: none;
+  }
+
+  .modal-header,
+  .profile-modal-header,
+  .complaint-modal-header,
+  .request-modal-header,
+  .change-password-header,
+  .detail-modal .modal-header {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .modal-content {
+    margin-top: 10px;
+  }
+
+  .modal-header h2,
+  .profile-modal-header h2,
+  .complaint-modal-header h2,
+  .request-modal-header h2,
+  .change-password-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .detail-modal .modal-header h3,
+  .modal-header h3 {
+    font-size: 1.05rem;
+  }
+
+  .modal-body,
+  .profile-modal-body,
+  .complaint-modal-body,
+  .request-modal-body,
+  .detail-modal .modal-body {
+    padding: 16px 18px;
+  }
+
+  .modal-footer,
+  .profile-modal-footer,
+  .complaint-modal-footer,
+  .request-modal-footer,
+  .detail-modal .modal-footer,
+  .change-password-modal .form-actions,
+  .outpass-modal-card .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-footer,
+  .profile-modal-footer,
+  .complaint-modal-footer,
+  .request-modal-footer,
+  .detail-modal .modal-footer {
+    padding: 14px 18px 18px;
+  }
+
+  .modal-footer button,
+  .profile-modal-footer button,
+  .complaint-modal-footer button,
+  .request-modal-footer button,
+  .change-password-modal .form-actions button,
+  .detail-modal .modal-footer .modal-btn,
+  .outpass-modal-card .form-actions button {
+    width: 100%;
+  }
+
+  .modal-content .details-grid,
+  .modal-content .form-row,
+  .request-modal-container .form-group-row,
+  .outpass-modal-card .form-row,
+  .profile-modal-content .profile-header-section {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .modal-content .details-grid {
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+
+  .modal-content .details-grid > div,
+  .complaint-modal-container .review-item,
+  .profile-modal-content .profile-field,
+  .detail-modal .detail-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .profile-modal-content .field-value,
+  .complaint-modal-container .review-value {
+    text-align: left;
+  }
+
+  .complaint-modal-progress {
+    padding: 14px 18px;
+    gap: 6px;
+  }
+
+  .progress-line {
+    flex-basis: 12px;
+  }
+}

@@ -1,0 +1,649 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --accent: #0f766e;
+  --accent-light: #ccfbf1;
+  --accent-2: #f59e0b;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+  --bg-light: #f8fafc;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 12px 24px -12px rgba(15, 23, 42, 0.28);
+  --success: #16a34a;
+  --warning: #f59e0b;
+}
+
+.student-outpass-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+.outpass-layout {
+  display: block;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+
+.outpass-main {
+  background: radial-gradient(1200px 600px at 5% 0%, #e0f2fe 0%, rgba(224, 242, 254, 0) 60%),
+    radial-gradient(900px 600px at 95% 10%, #fef3c7 0%, rgba(254, 243, 199, 0) 55%),
+    #f8fafc;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.outpass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0f766e 0%, #0ea5a0 60%, #22c55e 100%);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.outpass-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.outpass-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.new-request-btn {
+  padding: 10px 18px;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 16px -10px rgba(15, 23, 42, 0.6);
+}
+
+.new-request-btn:hover {
+  background-color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.new-request-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==================== FORM SECTION ==================== */
+
+.outpass-form-section {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.outpass-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.outpass-modal-card {
+  width: 100%;
+  max-width: 820px;
+  max-height: 85vh;
+  overflow-y: auto;
+  margin-bottom: 0;
+}
+
+.outpass-feedback-modal {
+  max-width: 520px;
+}
+
+.outpass-feedback-body {
+  padding: 16px;
+}
+
+.outpass-feedback-text {
+  margin: 0;
+  white-space: pre-line;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.outpass-feedback-text.is-success {
+  color: #065f46;
+}
+
+.outpass-feedback-text.is-error {
+  color: #991b1b;
+}
+
+.form-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-header > div {
+  padding-right: 48px;
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 4px 0;
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.form-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-close-btn:hover {
+  color: var(--text-dark);
+  border-color: var(--text-dark);
+}
+
+.outpass-form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-input,
+.form-textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-dark);
+  background-color: var(--white);
+  transition: all 0.2s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-light);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quick-time-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quick-time-btn {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-time-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.quick-time-btn.active {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 0;
+  padding: 16px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+.cancel-btn {
+  padding: 10px 24px;
+  background-color: var(--white);
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background-color: var(--bg-light);
+  border-color: #cbd5e1;
+}
+
+.submit-btn {
+  padding: 10px 24px;
+  background-color: #0f766e;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0d9488;
+  box-shadow: var(--shadow-md);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==================== HISTORY SECTION ==================== */
+
+.outpass-history-section {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.history-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 24px 0;
+}
+
+.outpass-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.outpass-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 8px 18px -16px rgba(15, 23, 42, 0.5);
+  animation: fadeUp 0.3s ease;
+  gap: 12px;
+}
+
+.outpass-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.outpass-destination {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  word-break: break-word;
+}
+
+.outpass-dates {
+  font-size: 13px;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.outpass-departure,
+.outpass-return {
+  display: inline-block;
+}
+
+.outpass-reason {
+  font-size: 14px;
+  color: #475569;
+}
+
+.otp-action-row {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.otp-action-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.otp-enter-btn {
+  background: #10b981;
+}
+
+.otp-enter-btn:hover {
+  background: #059669;
+}
+
+.otp-resend-btn {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+
+.otp-resend-btn:hover {
+  background: #ccfbf1;
+  border-color: #0d9488;
+}
+
+.otp-action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.outpass-status {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  min-width: 100px;
+  text-align: center;
+  box-shadow: 0 8px 14px -12px rgba(15, 23, 42, 0.6);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background-color: var(--bg-light);
+  text-align: center;
+  color: var(--text-light);
+}
+
+.history-empty-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.history-empty-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.history-empty-sub {
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .outpass-modal-overlay {
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+    align-items: flex-start;
+    z-index: 2000;
+    padding: 10px;
+  }
+
+  .outpass-modal-card {
+    width: 94%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 16px;
+    margin-top: 10px;
+  }
+
+  .outpass-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .outpass-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .otp-action-btn {
+    width: 100%;
+  }
+
+  .outpass-status {
+    align-self: flex-end;
+    min-width: auto;
+    margin-top: 4px;
+  }
+
+  .outpass-main {
+    padding: 16px;
+  }
+
+  .outpass-title {
+    font-size: 24px;
+  }
+
+  .outpass-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .new-request-btn {
+    width: 100%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-header {
+    padding: 16px;
+  }
+
+  .form-actions {
+    background: var(--white);
+    border-top: 1px solid #eee;
+    flex-wrap: nowrap;
+  }
+
+  .form-actions button {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .outpass-main {
+    padding: 12px;
+  }
+
+  .outpass-title {
+    font-size: 20px;
+  }
+
+  .outpass-subtitle {
+    font-size: 12px;
+  }
+
+  .new-request-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .outpass-form-section,
+  .outpass-history-section {
+    padding: 16px;
+  }
+
+  .outpass-modal-card {
+    max-height: 88vh;
+  }
+
+  .form-title {
+    font-size: 18px;
+  }
+
+  .form-subtitle {
+    font-size: 12px;
+  }
+
+  .form-label {
+    font-size: 13px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .quick-time-btn {
+    font-size: 11px;
+    padding: 5px 9px;
+  }
+
+  .submit-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .history-title {
+    font-size: 16px;
+  }
+
+  .history-empty {
+    padding: 30px 16px;
+  }
+
+  .history-empty-icon {
+    font-size: 40px;
+  }
+
+  .history-empty-text {
+    font-size: 14px;
+  }
+
+  .history-empty-sub {
+    font-size: 12px;
+  }
+}

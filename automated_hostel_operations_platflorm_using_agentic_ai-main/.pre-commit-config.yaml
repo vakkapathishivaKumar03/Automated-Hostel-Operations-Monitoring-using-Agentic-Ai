@@ -1,0 +1,21 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+
+  - repo: local
+    hooks:
+      - id: backend-compile
+        name: Backend compile check
+        entry: python -m compileall backend/app.py
+        language: system
+        pass_filenames: false
+
+      - id: backend-migrations-check
+        name: Backend migration validation
+        entry: python backend/check_migrations.py
+        language: system
+        pass_filenames: false
